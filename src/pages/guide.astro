@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StatusPanel from '../components/StatusPanel.astro';
+import { ui, defaultLocale } from '../i18n';
+const en = ui[defaultLocale];
+---
+<BaseLayout title="User Guide · Griffino" description="User guide entry point for Griffino." path="/guide.html">
+  <main class="content-page">
+    <p class="eyebrow" data-i18n="page.guide.eyebrow">{en['page.guide.eyebrow']}</p>
+    <h1 data-i18n="page.guide.title">{en['page.guide.title']}</h1>
+    <p class="hero-copy" data-i18n="page.guide.copy">{en['page.guide.copy']}</p>
+    <StatusPanel statusKey="page.download.status" copyKey="page.guide.statusCopy" />
+  </main>
+</BaseLayout>

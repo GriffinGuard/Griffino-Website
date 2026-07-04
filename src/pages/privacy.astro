@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ui, defaultLocale } from '../i18n';
+const en = ui[defaultLocale];
+---
+<BaseLayout title="Privacy Policy · Griffino" description="Privacy policy for Griffino and griffino.cc." path="/privacy.html">
+  <main class="content-page">
+    <p class="eyebrow" data-i18n="page.privacy.eyebrow">{en['page.privacy.eyebrow']}</p>
+    <h1 data-i18n="page.privacy.title">{en['page.privacy.title']}</h1>
+    <p class="hero-copy" data-i18n="page.privacy.copy">{en['page.privacy.copy']}</p>
+
+    <section class="content-section">
+      <h2 data-i18n="page.privacy.scope.title">{en['page.privacy.scope.title']}</h2>
+      <p data-i18n="page.privacy.scope.copy">{en['page.privacy.scope.copy']}</p>
+    </section>
+
+    <section class="content-section">
+      <h2 data-i18n="page.privacy.noCollect.title">{en['page.privacy.noCollect.title']}</h2>
+      <p data-i18n="page.privacy.noCollect.copy1">{en['page.privacy.noCollect.copy1']}</p>
+      <p data-i18n="page.privacy.noCollect.copy2">{en['page.privacy.noCollect.copy2']}</p>
+    </section>
+
+    <section class="content-section">
+      <h2 data-i18n="page.privacy.local.title">{en['page.privacy.local.title']}</h2>
+      <p data-i18n="page.privacy.local.copy1">{en['page.privacy.local.copy1']}</p>
+      <p data-i18n="page.privacy.local.copy2">{en['page.privacy.local.copy2']}</p>
+    </section>
+
+    <section class="content-section">
+      <h2 data-i18n="page.privacy.thirdParty.title">{en['page.privacy.thirdParty.title']}</h2>
+      <p data-i18n="page.privacy.thirdParty.copy1">{en['page.privacy.thirdParty.copy1']}</p>
+      <p data-i18n="page.privacy.thirdParty.copy2">{en['page.privacy.thirdParty.copy2']}</p>
+    </section>
+
+    <section class="content-section">
+      <h2 data-i18n="page.privacy.website.title">{en['page.privacy.website.title']}</h2>
+      <p data-i18n="page.privacy.website.copy">{en['page.privacy.website.copy']}</p>
+    </section>
+
+    <section class="content-section">
+      <h2 data-i18n="page.privacy.updates.title">{en['page.privacy.updates.title']}</h2>
+      <p data-i18n="page.privacy.updates.copy">{en['page.privacy.updates.copy']}</p>
+    </section>
+
+    <section class="content-section">
+      <h2 data-i18n="page.privacy.contact.title">{en['page.privacy.contact.title']}</h2>
+      <p data-i18n="page.privacy.contact.copy">{en['page.privacy.contact.copy']}</p>
+    </section>
+  </main>
+</BaseLayout>

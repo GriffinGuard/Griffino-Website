@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StatusPanel from '../components/StatusPanel.astro';
+import { ui, defaultLocale } from '../i18n';
+const en = ui[defaultLocale];
+---
+<BaseLayout title="Plugin Ecosystem · Griffino" description="Plugin ecosystem entry point for Griffino." path="/plugins.html">
+  <main class="content-page">
+    <p class="eyebrow" data-i18n="page.plugins.eyebrow">{en['page.plugins.eyebrow']}</p>
+    <h1 data-i18n="page.plugins.title">{en['page.plugins.title']}</h1>
+    <p class="hero-copy" data-i18n="page.plugins.copy">{en['page.plugins.copy']}</p>
+    <StatusPanel statusKey="page.download.status" copyKey="page.plugins.statusCopy" />
+  </main>
+</BaseLayout>

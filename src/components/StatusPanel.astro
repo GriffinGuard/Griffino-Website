@@ -1,0 +1,16 @@
+---
+import { ui, defaultLocale } from '../i18n';
+interface Props {
+  statusKey: string;
+  copyKey: string;
+}
+const { statusKey, copyKey } = Astro.props;
+const en = ui[defaultLocale];
+---
+<section class="content-section status-panel">
+  <span data-i18n={statusKey}>{en[statusKey]}</span>
+  <p data-i18n={copyKey}>{en[copyKey]}</p>
+</section>
+<script>
+  import '../scripts/status-reveal.ts';
+</script>

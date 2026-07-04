@@ -1,0 +1,18 @@
+---
+import { ui, defaultLocale } from '../i18n';
+const en = ui[defaultLocale];
+---
+<footer class="site-footer">
+  <div class="footer-brand">
+    <img src="/assets/brand/griffino-logo-mono-white-transparent.svg" alt="" width="64" height="64" />
+    <div>
+      <span>Griffino</span>
+      <p data-i18n="footer.tagline">{en['footer.tagline']}</p>
+    </div>
+  </div>
+  <div class="footer-meta">
+    <a href="https://github.com/GriffinGuard/Griffino" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="/privacy.html" data-i18n="footer.privacy">{en['footer.privacy']}</a>
+    <span class="footer-mark">© 2026 GriffinGuard</span>
+  </div>
+</footer>

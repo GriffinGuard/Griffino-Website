@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import RepoCard from '../components/RepoCard.astro';
+import { repos } from '../data/repos';
+import { ui, defaultLocale } from '../i18n';
+const en = ui[defaultLocale];
+const homeRepos = repos.filter((r) => r.onHomepage);
+---
+<BaseLayout
+  title="Griffino"
+  description="Griffino is an open standard and local runtime for capability-routed user-side plugins."
+  path="/index.html"
+>
+  <main id="top">
+    <section class="hero-section">
+      <div class="hero-visual" aria-hidden="true">
+        <div class="grid-field"></div>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n="hero.eyebrow">{en['hero.eyebrow']}</p>
+        <h1>Griffino</h1>
+        <p class="hero-copy" data-i18n="hero.copy">{en['hero.copy']}</p>
+        <div class="hero-actions">
+          <a class="primary-link" href="https://github.com/GriffinGuard/Griffino" data-i18n="hero.github" target="_blank" rel="noopener noreferrer">{en['hero.github']}</a>
+          <a class="secondary-link" href="/repositories.html" data-i18n="hero.repos">{en['hero.repos']}</a>
+        </div>
+      </div>
+      <div class="hero-emblem" aria-hidden="true">
+        <img src="/assets/brand/griffino-logo-primary-transparent.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="intro-band" aria-label="Project summary">
+      <div class="intro-copy">
+        <span class="section-kicker" data-i18n="intro.kicker">{en['intro.kicker']}</span>
+        <h2 data-i18n="intro.title">{en['intro.title']}</h2>
+      </div>
+      <p data-i18n="intro.body">{en['intro.body']}</p>
+    </section>
+
+    <section id="standard" class="feature-section">
+      <div class="section-heading">
+        <span class="section-kicker" data-i18n="standard.kicker">{en['standard.kicker']}</span>
+        <h2 data-i18n="standard.title">{en['standard.title']}</h2>
+      </div>
+      <div class="feature-grid">
+        <FeatureCard titleKey="standard.cards.manifest.title" bodyKey="standard.cards.manifest.body" />
+        <FeatureCard titleKey="standard.cards.capability.title" bodyKey="standard.cards.capability.body" />
+        <FeatureCard titleKey="standard.cards.schema.title" bodyKey="standard.cards.schema.body" />
+      </div>
+    </section>
+
+    <section id="runtime" class="runtime-section">
+      <div class="runtime-panel">
+        <div>
+          <span class="section-kicker" data-i18n="runtime.kicker">{en['runtime.kicker']}</span>
+          <h2 data-i18n="runtime.title">{en['runtime.title']}</h2>
+          <p data-i18n="runtime.body">{en['runtime.body']}</p>
+        </div>
+      </div>
+      <div class="runtime-stack" aria-label="Runtime responsibilities">
+        <div>
+          <span data-i18n="runtime.stack.plugins.label">{en['runtime.stack.plugins.label']}</span>
+          <p data-i18n="runtime.stack.plugins.body">{en['runtime.stack.plugins.body']}</p>
+        </div>
+        <div>
+          <span data-i18n="runtime.stack.routing.label">{en['runtime.stack.routing.label']}</span>
+          <p data-i18n="runtime.stack.routing.body">{en['runtime.stack.routing.body']}</p>
+        </div>
+        <div>
+          <span data-i18n="runtime.stack.console.label">{en['runtime.stack.console.label']}</span>
+          <p data-i18n="runtime.stack.console.body">{en['runtime.stack.console.body']}</p>
+        </div>
+      </div>
+      <div class="runtime-points">
+        <div>
+          <h3 data-i18n="runtime.points.security.title">{en['runtime.points.security.title']}</h3>
+          <p data-i18n="runtime.points.security.body">{en['runtime.points.security.body']}</p>
+        </div>
+        <div>
+          <h3 data-i18n="runtime.points.observability.title">{en['runtime.points.observability.title']}</h3>
+          <p data-i18n="runtime.points.observability.body">{en['runtime.points.observability.body']}</p>
+        </div>
+        <div>
+          <h3 data-i18n="runtime.points.workflow.title">{en['runtime.points.workflow.title']}</h3>
+          <p data-i18n="runtime.points.workflow.body">{en['runtime.points.workflow.body']}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="repos" class="repo-section">
+      <div class="section-heading">
+        <span class="section-kicker" data-i18n="repos.kicker">{en['repos.kicker']}</span>
+        <h2 data-i18n="repos.title">{en['repos.title']}</h2>
+      </div>
+      <div class="repo-grid">
+        {homeRepos.map((repo) => (
+          <RepoCard
+            name={repo.name}
+            url={repo.url}
+            i18nKey={repo.homeKey!}
+            description={en[repo.homeKey!]}
+            featured={repo.featured}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+  <script>
+    import '../scripts/fullpage.ts';
+  </script>
+</BaseLayout>

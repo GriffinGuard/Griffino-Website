@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Seo from '../components/Seo.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path including extension, e.g. "/about.html" — used for canonical/OG */
+  path: string;
+  ogImage?: string;
+}
+const { title, description, path, ogImage } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0E0F13" />
+    <link rel="icon" href="/assets/brand/griffino-avatar-front-badge-flat-solid-bg.png" />
+    <Seo title={title} description={description} path={path} ogImage={ogImage} />
+  </head>
+  <body>
+    <div class="page-shell">
+      <SiteHeader />
+      <slot />
+      <SiteFooter />
+    </div>
+    <script>
+      import '../scripts/i18n.ts';
+    </script>
+  </body>
+</html>

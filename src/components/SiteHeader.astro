@@ -1,0 +1,33 @@
+---
+import { navItems } from '../data/nav';
+import { ui, defaultLocale } from '../i18n';
+import GitHubIcon from './GitHubIcon.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+const en = ui[defaultLocale];
+
+const normalizePath = (p: string): string =>
+  p.replace(/\/index\.(html)?$/, '/').replace(/\.html$/, '').replace(/\/$/, '');
+const current = normalizePath(Astro.url.pathname);
+function isCurrent(href: string): boolean {
+  return normalizePath(href) === current;
+}
+---
+<header class="site-header" aria-label="Primary">
+  <a class="brand-link" href="/index.html" aria-label="Griffino home">
+    <img src="/assets/brand/griffino-avatar-front-badge-vtracer-flat.svg" alt="" width="34" height="34" />
+    <span>Griffino</span>
+  </a>
+  <nav class="nav-links" aria-label="Site">
+    {navItems.map((item) => (
+      <a href={item.href} data-i18n={item.i18nKey} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+        {en[item.i18nKey]}
+      </a>
+    ))}
+  </nav>
+  <div class="header-actions">
+    <LanguageSwitcher />
+    <a class="icon-button" href="https://github.com/GriffinGuard/Griffino" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+      <GitHubIcon />
+    </a>
+  </div>
+</header>

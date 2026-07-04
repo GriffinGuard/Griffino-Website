@@ -1,0 +1,17 @@
+---
+interface Props {
+  name: string;
+  url: string;
+  i18nKey: string;
+  description: string;
+  featured?: boolean;
+}
+const { name, url, i18nKey, description, featured = false } = Astro.props;
+---
+<a class="repo-card" class:list={{ featured }} href={url} target="_blank" rel="noopener noreferrer">
+  <span>{name}</span>
+  <p data-i18n={i18nKey}>{description}</p>
+</a>
+<script>
+  import '../scripts/repo-tilt.ts';
+</script>

@@ -1,0 +1,24 @@
+---
+// Centralized SEO metadata. Receives page-level props and emits
+// <title>, description, canonical and Open Graph tags.
+interface Props {
+  title: string;
+  description: string;
+  /** Path including extension, e.g. "/about.html" */
+  path: string;
+  /** Optional OG image path (root-absolute). Defaults to the brand badge. */
+  ogImage?: string;
+}
+const { title, description, path, ogImage } = Astro.props;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const canonical = site + path;
+const image = ogImage ?? '/assets/brand/griffino-avatar-front-badge-flat-solid-bg.png';
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={site + image} />

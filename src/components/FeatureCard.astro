@@ -1,0 +1,13 @@
+---
+import { ui, defaultLocale } from '../i18n';
+interface Props {
+  titleKey: string;
+  bodyKey: string;
+}
+const { titleKey, bodyKey } = Astro.props;
+const en = ui[defaultLocale];
+---
+<article class="feature-card">
+  <h3 data-i18n={titleKey}>{en[titleKey]}</h3>
+  <p data-i18n={bodyKey}>{en[bodyKey]}</p>
+</article>

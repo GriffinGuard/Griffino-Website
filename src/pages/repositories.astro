@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RepoCard from '../components/RepoCard.astro';
+import { repos } from '../data/repos';
+import { ui, defaultLocale } from '../i18n';
+const en = ui[defaultLocale];
+---
+<BaseLayout title="Repositories · Griffino" description="Repository map for Griffino." path="/repositories.html">
+  <main class="content-page wide-page">
+    <p class="eyebrow" data-i18n="page.repos.eyebrow">{en['page.repos.eyebrow']}</p>
+    <h1 data-i18n="page.repos.title">{en['page.repos.title']}</h1>
+    <p class="hero-copy" data-i18n="page.repos.copy">{en['page.repos.copy']}</p>
+    <section class="content-section">
+      <h2 data-i18n="page.repos.section">{en['page.repos.section']}</h2>
+      <div class="repo-grid directory-grid">
+        {repos.map((repo) => (
+          <RepoCard
+            name={repo.name}
+            url={repo.url}
+            i18nKey={repo.pageKey}
+            description={en[repo.pageKey]}
+            featured={repo.featured}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import { ui, defaultLocale } from '../i18n';
+const en = ui[defaultLocale];
+const options: ReadonlyArray<readonly [string, string]> = [
+  ['en', 'English'],
+  ['zh-CN', '简体中文'],
+  ['zh-TW', '繁體中文'],
+  ['ja', '日本語'],
+  ['ko', '한국어'],
+  ['fr', 'Français'],
+  ['de', 'Deutsch'],
+  ['ru', 'Русский'],
+];
+---
+<label class="language-label" for="languageSelect" data-i18n="language.label">{en['language.label']}</label>
+<select id="languageSelect" class="language-select" aria-label="Language">
+  {options.map(([value, label]) => <option value={value}>{label}</option>)}
+</select>
